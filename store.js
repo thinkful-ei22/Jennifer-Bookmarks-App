@@ -1,5 +1,5 @@
 'use strict';
-
+/*global $ api store listeners*/
 const store = (function(){
 
   const findById = function(id){

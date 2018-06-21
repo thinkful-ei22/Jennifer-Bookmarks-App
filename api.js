@@ -1,5 +1,5 @@
 'use strict';
-/*global $*/
+/*global $ api store listeners*/
 
 const api = (function(){
 
