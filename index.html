@@ -5,45 +5,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 </head>
 <body>
-    <main>
-        //title (header) - should stay fixed to the top
-        //div for top - should stay fixed at top 
-            //add button - align left
-            //filter dropdown - align right (inline with add button)
-                //options: 1 star, 2 stars...
-        //div for create container
-            //heading "create a bookmark"
-            //input field (title) -left
-            //input field (url) - right (inline with title)
-            //input field (description) - left align
-            //rating scale - right align
-            //submit button - bottom right
-        //div for edit container
-            //heading "edit bookmark"
-            //input field (filled with previous text) (title) -left
-            //input field (filled with previous text) (url) - right (inline with title)
-            //input field (filled with previous text) (description) - left align
-            //rating scale (filled with previous rating) - right align
-            //submit button - bottom right
-        //div to hold list
-            //ul to hold entries
-                //li in default mode 
-                    //header(?) to display title - top left text, clickable
-                    //div to display rating - bottom left
-                    //button to delete - top right
-                //li in expanded mode
-                    //header(?) to display title - top left text, clickable
-                    //div to display rating - under title, align left
-                    //div to display description
-                    //button to visit site - bottom left
-                    //button to edit - bottom right
-                    //button to delete - top right
-        //error message pop-up 
-            //title "oops!"
-            //error text
+    <main role:"main">
+        <!-- <title (header) - should stay fixed to the top (make bigger and centered)-->
+        <header role:"banner">
+            <h1>My Bookmarks</h1>
+        </header>
+        <!-- div for top - should stay fixed at top -->
+        <div>
+            <!-- add button - align left, make larger -->
+            <button type:"submit" name:"add-bookmark" id:"add-bookmark">Add Bookmark</button>
+            <!-- filter dropdown - align right (inline with add button) maybe add label-->
+            <select name="rating-filter" id:"rating-filter">
+                <!-- options: 1 star, 2 stars... add ids, values, etc.  should value be a number?-->
+                <option value="none" selected>Minimum Rating</option>
+                <option value:"5">5 Stars</option>
+                <option value:"4">4 Stars</option>
+                <option value:"3">3 Stars</option>
+                <option value:"2">2 Stars</option>
+                <option value:"1">1 Star</option>   
+            </select>
+        </div>
+        <!-- form for create container -->
+        <form name="create-form" id="">
+            <!-- heading "create a bookmark" -->
+            <h3>Create Bookmark</h3>
+            <!-- input field (title) -left -->
+            <input name="title" id="" type="text" placeholder="Title" required/>
+            <!-- input field (url) - right (inline with title) -->
+            <input name="bookmark-url" id="" type="text" placeholder="http://www.example.com" required/>
+            <!-- input field (description) - left align -->
+            <textarea name="description" id="" placeholder="Description..." required></textarea>
+            <!-- rating scale - right align -->
+            <fieldset>
+                <legend>Rating</legend>
+                <!-- change so that only one at a time can be selected -->
+                <input name="five" id="" type="radio"/>
+                <label>5 Stars</label><br/>
+                <input name="four" id="" type="radio"/>
+                <label>4 Stars</label><br/>
+                <input name="three" id="" type="radio"/>
+                <label>3 Stars</label><br/>
+                <input name="two" id="" type="radio"/>
+                <label>2 Stars</label><br/>
+                <input name="one" id="" type="radio"/>
+                <label>1 Star</label><br/>
+            </fieldset>
+            <!-- submit button - bottom right -->
+            <button type:"submit" name:"submit-new" id:"" >Submit</button>
+        </form>
+        <!-- div to hold list-->
+        <div>
+            <!-- ul to hold entries -->
+            <ul>
+                <!-- li in default mode  -->
+                <li>
+                    <!-- heading to display title - top left text, clickable -->
+                    <h3>Example Title</h3>
+                    <!-- div to display rating - bottom left -->
+                    <div>
+                        <!-- the class checked will need to change depending on rating, also need to pick color -->
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <!-- button to delete - top right -->
+                    <button type:"submit" name:"delete-bookmark" id:"">Delete</button>
+                </li>
+                <li>
+                    <!-- heading to display title - top left text, clickable -->
+                    <h3>Example Title Expanded</h3>
+                    <!-- div to display rating - bottom left -->
+                    <div>
+                        <!-- stay under title the class checked will need to change depending on rating, also need to pick color -->
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <!-- div to display description -->
+                    <div>
+                        <p>
+                            Sample description...
+                        </p>
+                    </div>
+                    <!-- button to visit site - bottom left -->
+                    <button type:"submit" name:"visit-site" id:"">Visit Site</button>
+                    <!-- button to edit - bottom right -->
+                    <button type:"submit" name:"edit-bookmark" id"":>Edit</button>
+                    <!-- button to delete - top right -->
+                    <button type:"submit" name:"delete-expanded-bookmark" id:"">Delete</button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Oops!</h3>
+            <p>Error text...</p>
+            <span>&times;</span>
+        </div>
+        <!-- error message pop-up 
+            title "oops!"
+            error text -->
+            <!-- div for edit container...is a separate form required? research how to implement edits
+            heading "edit bookmark"
+            input field (filled with previous text) (title) -left
+            input field (filled with previous text) (url) - right (inline with title)
+            input field (filled with previous text) (description) - left align
+            rating scale (filled with previous rating) - right align
+            submit button - bottom right-->
         
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
