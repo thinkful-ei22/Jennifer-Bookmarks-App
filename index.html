@@ -15,7 +15,7 @@
             <h1>My Bookmarks</h1>
         </header>
         <!-- div for top - should stay fixed at top -->
-        <div>
+        <div class="button-container">
             <!-- add button - align left, make larger -->
             <button type:"submit" name:"add-bookmark" id:"add-bookmark">Add Bookmark</button>
             <!-- filter dropdown - align right (inline with add button) maybe add label-->
@@ -30,15 +30,15 @@
             </select>
         </div>
         <!-- form for create container -->
-        <form name="create-bookmark" id="" class="create-form">
+        <form name="create-bookmark" id="create-form" class="hidden">
             <!-- heading "create a bookmark" -->
             <h3>Create Bookmark</h3>
             <!-- input field (title) -left -->
-            <input name="title" id="" type="text" placeholder="Title" required/>
+            <input name="title" id="title" type="text" placeholder="Title" required/>
             <!-- input field (url) - right (inline with title) -->
-            <input name="bookmark-url" id="" type="text" placeholder="http://www.example.com" required/>
+            <input name="bookmark-url" id="url" type="text" placeholder="http://www.example.com" required/>
             <!-- input field (description) - left align -->
-            <textarea name="description" id="" placeholder="Description..." required></textarea>
+            <textarea name="description" id="description" placeholder="Description..." required></textarea>
             <!-- rating scale - right align -->
             <fieldset>
                 <legend>Rating</legend>
@@ -55,7 +55,7 @@
                 <label>1 Star</label><br/>
             </fieldset>
             <!-- submit button - bottom right -->
-            <button type:"submit" name:"submit-new" id:"" >Submit</button>
+            <button type:"submit" name:"submit-new" id:"submit-new" >Submit</button>
         </form>
         <!-- div to hold list-->
         <div>
