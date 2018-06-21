@@ -41,7 +41,10 @@ const api = (function(){
   };
     
   const getBookmarks = function(callback){
-    return $.getJSON(`${BASE_URL}/bookmarks`, callback);
+    const data= $.getJSON(`${BASE_URL}/bookmarks`, callback);
+    console.log(Object.keys(data));
+    store.items.push(data);
+    console.log(store.items);
   };
 
   return {

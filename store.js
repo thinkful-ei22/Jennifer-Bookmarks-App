@@ -12,7 +12,7 @@ const store = (function(){
     bookmark.desc=description;
     bookmark.expanded=false;
     this.items.push(bookmark);
-  };
+  }; 
 
   const toggleExpanded = function(id){
     let bookmark = this.findById(id);  
