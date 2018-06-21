@@ -21,3 +21,7 @@ ul {
 .checked {
     color:gold;
 }
+
+.hidden {
+    display: none;
+}

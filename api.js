@@ -41,7 +41,6 @@ const api = (function(){
   };
     
   const getBookmarks = function(callback){
-    console.log('getBookmarks needs to make a GET request to the API and add data to store');
     return $.getJSON(`${BASE_URL}/bookmarks`, callback);
   };
 
