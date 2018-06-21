@@ -6,19 +6,19 @@ const store = (function(){
       title: 'Sample',
       rating: 5,
       expanded: false,
-      id: 'randomid'  
+      id: '1'  
     },
     {
       title: 'Sample 2',
       rating: 4,
       expanded: true,
-      id: 'randomid2'  
+      id: '2'  
     },
     {
       title: 'Sample 3',
       rating: 3,
       expanded: false,
-      id: 'randomid3'  
+      id: '3'  
     }
   ];
 
@@ -29,8 +29,9 @@ const store = (function(){
     this.items.push(bookmark);
   };
 
-  const toggleExpanded = function(){
-    this.items.expanded=!this.items.expanded;
+  const toggleExpanded = function(id){
+    let bookmark = this.findById(id);  
+    bookmark.expanded=!bookmark.expanded;
   };
 
   const findAndUpdate = function(id, newData){
