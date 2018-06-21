@@ -10,6 +10,7 @@ const store = (function(){
     let description = $('#description').val();
     bookmark.rating=rating;
     bookmark.desc=description;
+    bookmark.expanded=false;
     this.items.push(bookmark);
   };
 

@@ -20,12 +20,13 @@ const listeners= (function(){
       api.createBookmark(title, URL, (newBookmark)=>{
         store.addBookmark(newBookmark);
         render();
+        let form = $('#create-form');
+        form.toggleClass('hidden');
       });
     });
   };
 
   const generateRatingHtml = function(item){
-      console.log(item.rating);
     if(item.rating===5){
       return `
                <span class="fa fa-star checked"></span>
@@ -122,13 +123,24 @@ const listeners= (function(){
   // const handleUpdateBookmark = function(){
   //   console.log('handleUpdateBookmark needs to listen for a click on the edit button, run a function that allows for editing and one that will update the store');
   // };
+  //   const getItemIdFromElement = function (item) {
+  //     return $(item).data('id');
+  //   };
+
+  const handleExpand = function(){
+    $('ul').on('click', '.list-item', event => {
+      const id = $(event.currentTarget).attr('id');
+      const item = store.findById(id);
+      console.log(item);
+      store.findAndUpdate(id, {expanded: !item.expanded});
+      render();
+    });
+  };
   
-  // const handleExpand = function(){
-  //   console.log('handleExpand needs to listen for a click on the item and run a function that toggles the expanded class');
-  // };
   const bindEventListeners = function(){
     handleCreateClick();
     handleNewBookmark();
+    handleExpand();
   };
   return {
     render,
