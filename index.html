@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 </head>
 <body>
     <main role:"main">
@@ -30,7 +30,7 @@
             </select>
         </div>
         <!-- form for create container -->
-        <form name="create-form" id="">
+        <form name="create-form" id="" class="create-form">
             <!-- heading "create a bookmark" -->
             <h3>Create Bookmark</h3>
             <!-- input field (title) -left -->
@@ -43,15 +43,15 @@
             <fieldset>
                 <legend>Rating</legend>
                 <!-- change so that only one at a time can be selected -->
-                <input name="five" id="" type="radio"/>
+                <input name="rating" id="" type="radio" value="5"/>
                 <label>5 Stars</label><br/>
-                <input name="four" id="" type="radio"/>
+                <input name="rating" id="" type="radio" value="4"/>
                 <label>4 Stars</label><br/>
-                <input name="three" id="" type="radio"/>
+                <input name="rating" id="" type="radio" value="3"/>
                 <label>3 Stars</label><br/>
-                <input name="two" id="" type="radio"/>
+                <input name="rating" id="" type="radio" value="2"/>
                 <label>2 Stars</label><br/>
-                <input name="one" id="" type="radio"/>
+                <input name="rating" id="" type="radio" value="1"/>
                 <label>1 Star</label><br/>
             </fieldset>
             <!-- submit button - bottom right -->
@@ -62,14 +62,14 @@
             <!-- ul to hold entries -->
             <ul>
                 <!-- li in default mode  -->
-                <li>
+                <li class="list-item">
                     <!-- heading to display title - top left text, clickable -->
                     <h3>Example Title</h3>
                     <!-- div to display rating - bottom left -->
                     <div>
                         <!-- the class checked will need to change depending on rating, also need to pick color -->
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
@@ -77,7 +77,7 @@
                     <!-- button to delete - top right -->
                     <button type:"submit" name:"delete-bookmark" id:"">Delete</button>
                 </li>
-                <li>
+                <li class="list-item">
                     <!-- heading to display title - top left text, clickable -->
                     <h3>Example Title Expanded</h3>
                     <!-- div to display rating - bottom left -->
@@ -91,9 +91,7 @@
                     </div>
                     <!-- div to display description -->
                     <div>
-                        <p>
-                            Sample description...
-                        </p>
+                        <p>Sample description...</p>
                     </div>
                     <!-- button to visit site - bottom left -->
                     <button type:"submit" name:"visit-site" id:"">Visit Site</button>
@@ -104,7 +102,7 @@
                 </li>
             </ul>
         </div>
-        <div>
+        <div class="error-message">
             <h3>Oops!</h3>
             <p>Error text...</p>
             <span>&times;</span>

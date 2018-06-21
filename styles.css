@@ -1,4 +1,23 @@
-.list-item{
-border: 1px;
-border-color: black;
+.list-item {
+    margin:10px;
+    border: solid 1px;
+    border-color: black;
+}
+
+.create-form {
+    margin:10px;
+    border: solid 1px;
+    border-color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.error-message { 
+    border: solid 1px;
+    border-color: red;
+}
+.checked {
+    color:gold;
 }
