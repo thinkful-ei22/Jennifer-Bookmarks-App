@@ -1,31 +1,15 @@
 'use strict';
 
 const store = (function(){
-  const items=[
-    {
-      title: 'Sample',
-      rating: 5,
-      expanded: false,
-      id: '1'  
-    },
-    {
-      title: 'Sample 2',
-      rating: 4,
-      expanded: true,
-      id: '2'  
-    },
-    {
-      title: 'Sample 3',
-      rating: 3,
-      expanded: false,
-      id: '3'  
-    }
-  ];
 
   const findById = function(id){
     return this.items.find(bookmark => bookmark.id === id);
   };
   const addBookmark = function(bookmark){
+    let rating = $('input[type="radio"]:checked').val();
+    let description = $('#description').val();
+    bookmark.rating=rating;
+    bookmark.desc=description;
     this.items.push(bookmark);
   };
 
@@ -44,7 +28,7 @@ const store = (function(){
   };
 
   return {
-    items,
+    items: [],
     findById,
     addBookmark,
     toggleExpanded,

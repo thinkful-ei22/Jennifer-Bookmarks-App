@@ -35,7 +35,7 @@
             <input name="title" id="title" type="text" placeholder="Title" required/>
             <input name="bookmark-url" id="url" type="text" placeholder="http://www.example.com" required/>
             <textarea name="description" id="description" placeholder="Description..." required></textarea>
-            <fieldset>
+            <fieldset id="rating">
                 <legend>Rating</legend>
                 <input name="rating" id="" type="radio" value="5"/>
                 <label>5 Stars</label><br/>
@@ -70,7 +70,7 @@
                     <!-- button to delete - top right -->
                     <button type="submit" name="delete-bookmark" id="">Delete</button>
                 </li>
-                <li class="list-item">
+                <li class="list-item expanded">
                     <!-- heading to display title - top left text, clickable -->
                     <h3>Example Title Expanded</h3>
                     <!-- div to display rating - bottom left -->
