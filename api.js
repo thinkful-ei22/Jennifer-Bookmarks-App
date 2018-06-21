@@ -1,19 +1,19 @@
 'use strict';
-
+/*global $*/
 
 const api = (function(){
 
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/jennifer';
 
-  const createBookmark = function(title, callback){
-    console.log('createBookmark needs to make a POST request to the API');
+  const createBookmark = function(title, url, callback){
     const newBookmark = JSON.stringify({
       title,
+      url,
     });
     $.ajax({
       'url': `${BASE_URL}/bookmarks`,
       'method':'POST',
-      'constentType': 'application/json',
+      'contentType': 'application/json',
       'data':newBookmark,
       'success':callback
     });
@@ -24,7 +24,7 @@ const api = (function(){
     $.ajax({
       'url': `${BASE_URL}/bookmarks/${id}`,
       'method':'PATCH',
-      'constentType': 'application/json',
+      'contentType': 'application/json',
       'data': JSON.stringify(updateData),
       'success':callback
     });
