@@ -5,32 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Bookmarks App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="styles/styles.css">
     <link type="text/css" rel="stylesheet" href="styles/formstyles.css">
     <link type="text/css" rel="stylesheet" href="styles/bookmarksstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-        <!-- <title (header) - should stay fixed to the top (make bigger and centered)-->
         <header role="banner">
+            <div>
             <h1>My Bookmarks</h1>
-                <!-- add button - align left, make larger -->
-                <button type="submit" name="add-bookmark" id="add-bookmark">Add Bookmark</button>
-                    <!-- filter dropdown - align right (inline with add button) maybe add label-->
-                <select name="rating-filter" id="rating-filter" aria-label="rating-select">
-                        <!-- options: 1 star, 2 stars... add ids, values, etc.  should value be a number?-->
+                <div class="button-wrap">
+                    <button type="submit" name="add-bookmark" id="add-bookmark">Add Bookmark</button>
+                    <select name="rating-filter" id="rating-filter" aria-label="rating-select">
                         <option value="0" selected>Minimum Rating</option>
                         <option value="5">5 Stars</option>
                         <option value="4">4 Stars</option>
                         <option value="3">3 Stars</option>
                         <option value="2">2 Stars</option>
                         <option value="1">1 Star</option>   
-                </select>
+                    </select>
+                </div>
+            </div>
         </header>
     <main>
-        <!-- div for top - should stay fixed at top -->
-        
-        <!-- form for create container -->
         <form name="create-bookmark" id="create-form" class="hidden">
             <h3>Create Bookmark</h3>
             <div id="input-div">
@@ -57,8 +55,10 @@
                 <button type="submit" name="submit-new" id="submit-new" >Submit</button>
             </div>
         </form>
+        <div>
             <ul class="bookmark-results">
             </ul>
+        </div>
         <div class="title-error-message hidden alert">
             <h3>Oops!</h3>
             <span class="closebtn">&times;</span>

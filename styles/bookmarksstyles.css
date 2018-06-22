@@ -1,6 +1,6 @@
 #edit-bookmark{
     float: right;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .item-button-container{
@@ -9,11 +9,11 @@
 }
 
 .list-item {
+    font-family: 'Raleway', sans-serif;
     margin:10px;
     border: solid 1px;
     border-color:lightgrey;
     border-radius: 5px;
-    max-width: 500px;
 }
 
 .delete {
@@ -26,10 +26,11 @@
     border-radius: 50px;
 }
 
-ul {
+.bookmark-results {
+    font-family: 'Raleway', sans-serif;
     list-style-type: none;
-    margin: 25px;
-    padding: 25px;
+    width: 50%;
+    margin: 3em auto;
 }
 
 .ratings {
@@ -42,16 +43,9 @@ h3 {
     display: inline-block;
 }
 
-.item-heading {
-    display:inline-block;
-    font-size: 0;
-    width: 100%;
-    box-sizing: border-box;
-}
 .title {
     width: 100%;
     background-color: lightgray;
-    display: inline-block;
     font-size: 16px;
     height:100%;
     box-sizing: border-box;
@@ -59,13 +53,13 @@ h3 {
 
 .trash {
     width: 30px;
-    background-color: lightgray;
-    display:inline-block;
     height: 100%;
     box-sizing: border-box;
+    float: right;
 }
 
 span{
+    font-family: 'Raleway', sans-serif;
     text-align: center;
 }
 
@@ -93,4 +87,9 @@ p {
     float: right;
     background-color: lightgrey;  
     border-radius: 5px;
+}
+
+a {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
 }

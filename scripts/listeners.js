@@ -137,6 +137,7 @@ const listeners= (function(){
     let title = item.title;
     let id=item.id;
     let description = item.desc;
+    let website = item.url;
     if(item.expanded === true){
       return `  
       <li class="list-item expanded" id=${id}>
@@ -153,11 +154,11 @@ const listeners= (function(){
           <p>${description}</p>
         </div>
         <div class="item-button-container">
-          <button type="submit" name="visit-site" id="visit-site">Visit Site</button>
-          <button type="submit" name="edit-bookmark" id="edit-bookmark"><span class="fa fa-pencil"></span><span> Edit</span></button>
+          <button type="submit" name="visit-site" id="visit-site"><a href = ${website} target="_blank">Visit Site</a></button>
         </div>
       </li>`;
     } 
+    //<button type="submit" name="edit-bookmark" id="edit-bookmark"><span class="fa fa-pencil"></span><span> Edit</span></button>
     return `
     <li class="list-item" id=${id}>
         <div class="title">

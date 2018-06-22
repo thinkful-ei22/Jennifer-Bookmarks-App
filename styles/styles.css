@@ -1,7 +1,11 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
 h1{
     margin:0px;
 }
 header {
+    font-family: 'Raleway', sans-serif;
     margin: 10px;;
     text-align: center;
 }
@@ -15,26 +19,26 @@ header {
 }
 
 #add-bookmark{
+    font-family: 'Raleway', sans-serif;
     float: left;
-    display: inline-block;
-    margin-left: 25%;
     width:200px;
     height:25px;
 }
 
 #rating-filter{
+    font-family: 'Raleway', sans-serif;
     float: right;
-    display: inline-block;
-    margin-right: 25%;
     width:200px;
     height:25px;
 }
 
 main {
+    font-family: 'Raleway', sans-serif;
     margin:auto;
 }
 
 .alert {
+    font-family: 'Raleway', sans-serif;
     padding: 5px;
     background-color: lightcoral;
     color: white;
@@ -63,4 +67,10 @@ main {
 
 .message {
     float: left;
+}
+
+.button-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
