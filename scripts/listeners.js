@@ -12,6 +12,50 @@ const listeners= (function(){
     });
   };
 
+  const validateTitle = function(title){
+    if (!title){
+      $('.title-error-message').toggleClass('hidden');
+    }};
+  const validateURL = function(URL){
+    if (!URL) {
+      $('.url-error-message').toggleClass('hidden');
+    }};
+  const validateDesc = function(desc){
+    if (!desc) {
+      $('.desc-error-message').toggleClass('hidden');
+    }};
+  const validateRating = function(rating){
+    if (!rating) {
+      $('.rating-error-message').toggleClass('hidden');
+    }};
+
+  const handleCloseTitleError = function(){
+    $('.title-error-message').on('click', '.closebtn', event=>{
+      event.preventDefault();
+      let errorBox = $('.title-error-message');
+      errorBox.toggleClass('hidden');
+    });};
+  const handleCloseUrlError = function(){
+    $('.url-error-message').on('click', '.closebtn', event=>{
+      event.preventDefault();
+      let errorBox = $('.url-error-message');
+      errorBox.toggleClass('hidden');
+    });
+  };
+  const handleCloseDescError = function(){
+    $('.desc-error-message').on('click', '.closebtn', event=>{
+      event.preventDefault();
+      let errorBox = $('.desc-error-message');
+      errorBox.toggleClass('hidden');
+    });
+  };
+  const handleCloseRatingError = function(){
+    $('.rating-error-message').on('click', '.closebtn', event=>{
+      event.preventDefault();
+      let errorBox = $('.rating-error-message');
+      errorBox.toggleClass('hidden');
+    });
+  };
   const handleNewBookmark = function(){
     $('#create-form').on('click', '#submit-new', event=>{
       event.preventDefault();
@@ -19,6 +63,10 @@ const listeners= (function(){
       const URL = $('#url').val();
       let rating = $('input[type="radio"]:checked').val();
       let desc = $('#description').val();
+      validateTitle(title);
+      validateURL(URL);
+      validateDesc(desc);
+      validateRating(rating);
       api.createBookmark(title, URL, rating, desc, (newBookmark)=>{
         store.addBookmark(newBookmark);
         render();
@@ -125,7 +173,6 @@ const listeners= (function(){
   };
 
   const generateBookmarkList = function(items){
-    items = store.items;
     const html = items.map((item)=>generateBookmarkHtml(item));
     return html.join('');
   };
@@ -146,8 +193,6 @@ const listeners= (function(){
   const handleDeleteBookmark = function(){
     $('ul').on('click', '.delete', event => {
       const id = $(event.currentTarget).parent().parent().attr('id');
-      console.log(id);
-      // store.findAndDelete(id);
       api.deleteBookmark(id, ()=>{
         store.findAndDelete(id);
         render();
@@ -169,7 +214,6 @@ const listeners= (function(){
       let ratingFilter = parseInt($('select option:checked').val());
       if(ratingFilter!==0){
         store.filterByRating=true;
-        render();
       }
       render();
     });
@@ -181,6 +225,10 @@ const listeners= (function(){
     handleExpand();
     handleDeleteBookmark();
     handleRatingFilter();
+    handleCloseTitleError();
+    handleCloseUrlError();
+    handleCloseDescError();
+    handleCloseRatingError();
   };
   return {
     render,

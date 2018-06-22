@@ -34,3 +34,33 @@ main {
     margin:auto;
 }
 
+.alert {
+    padding: 5px;
+    background-color: lightcoral;
+    color: white;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.message {
+    float: left;
+}
