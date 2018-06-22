@@ -1,10 +1,13 @@
-h1{
-    margin:0px;
+#edit-bookmark{
+    float: right;
+    display: inline-block;
 }
-header {
-    margin: 10px;;
-    text-align: center;
+
+.item-button-container{
+    display: inline-block;
+    width: 100%;
 }
+
 .list-item {
     margin:10px;
     border: solid 1px;
@@ -23,28 +26,10 @@ header {
     border-radius: 50px;
 }
 
-.create-form {
-    margin:10px;
-    border: solid 1px;
-    border-color: black;
-}
-
 ul {
     list-style-type: none;
     margin: 25px;
     padding: 25px;
-}
-
-.error-message { 
-    border: solid 1px;
-    border-color: red;
-}
-.checked {
-    color:gold;
-}
-
-.hidden {
-    display: none;
 }
 
 .ratings {
@@ -90,33 +75,4 @@ p {
     float: right;
     background-color: lightgrey;  
     border-radius: 5px;
-}
-
-#add-bookmark{
-    float: left;
-    display: inline-block;
-    margin-left: 25%;
-    width:200px;
-    height:25px;
-}
-
-#rating-filter{
-    float: right;
-    display: inline-block;
-    margin-right: 25%;
-    width:200px;
-    height:25px;
-}
-#edit-bookmark{
-    float: right;
-    display: inline-block;
-}
-
-.item-button-container{
-    display: inline-block;
-    width: 100%;
-}
-
-main {
-    margin:auto;
 }

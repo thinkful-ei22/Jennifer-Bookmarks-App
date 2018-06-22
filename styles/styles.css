@@ -1,0 +1,36 @@
+h1{
+    margin:0px;
+}
+header {
+    margin: 10px;;
+    text-align: center;
+}
+
+.error-message { 
+    border: solid 1px;
+    border-color: red;
+}
+.checked {
+    color:gold;
+}
+
+#add-bookmark{
+    float: left;
+    display: inline-block;
+    margin-left: 25%;
+    width:200px;
+    height:25px;
+}
+
+#rating-filter{
+    float: right;
+    display: inline-block;
+    margin-right: 25%;
+    width:200px;
+    height:25px;
+}
+
+main {
+    margin:auto;
+}
+

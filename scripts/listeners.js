@@ -5,7 +5,7 @@
 const listeners= (function(){
 
   const handleCreateClick = function(){ 
-    $('#button-container').on('click','#add-bookmark',event => {
+    $('#add-bookmark').on('click',event => {
       event.preventDefault();
       let form = $('#create-form');
       form.toggleClass('hidden');
