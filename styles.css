@@ -1,7 +1,26 @@
+h1{
+    margin:0px;
+}
+header {
+    margin: 10px;;
+    text-align: center;
+}
 .list-item {
     margin:10px;
     border: solid 1px;
-    border-color: black;
+    border-color:lightgrey;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+#delete {
+    margin: 5px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    background-color: darkgray;
+    border-radius: 50px;
 }
 
 .create-form {
@@ -12,6 +31,8 @@
 
 ul {
     list-style-type: none;
+    margin: 25px;
+    padding: 25px;
 }
 
 .error-message { 
@@ -24,4 +45,78 @@ ul {
 
 .hidden {
     display: none;
+}
+
+.ratings {
+    /* display:inline-block; */
+    margin: 5px;
+}
+
+h3 {
+    margin: 5px;
+    display: inline-block;
+}
+
+.title {
+    width: 100%;
+    background-color: lightgray;
+}
+
+span{
+    text-align: center;
+}
+
+p {
+    border: solid 1px lightgray;
+    margin: 5px;
+    padding: 5px;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+#visit-site{
+    margin: 5px;
+    width: 100px;
+    height: 20px;
+    float: left;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+#edit-bookmark{
+    margin: 5px;
+    width: 100px;
+    height: 20px;
+    float: right;
+    background-color: lightgrey;  
+    border-radius: 5px;
+}
+
+#add-bookmark{
+    float: left;
+    display: inline-block;
+    margin-left: 25%;
+    width:200px;
+    height:25px;
+}
+
+#rating-filter{
+    float: right;
+    display: inline-block;
+    margin-right: 25%;
+    width:200px;
+    height:25px;
+}
+#edit-bookmark{
+    float: right;
+    display: inline-block;
+}
+
+.item-button-container{
+    display: inline-block;
+    width: 100%;
+}
+
+main {
+    margin:auto;
 }

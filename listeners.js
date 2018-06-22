@@ -74,6 +74,7 @@ const listeners= (function(){
   };
 
   const generateBookmarkHtml= function(item){
+    console.log('generateBookmarkHtml ran');
     let title = item.title;
     let rating = generateRatingHtml(item);
     console.log(rating);
@@ -104,17 +105,16 @@ const listeners= (function(){
 
   const generateBookmarkList = function(){
     const items = store.items;
+    // const html = items.map((item) => item.map((bookmark)=>generateBookmarkHtml(bookmark)));
     const html = items.map((item)=>generateBookmarkHtml(item));
     return html.join('');
   };
 
   const render = function(){
-    console.log('render ran');
     let items = store.items;
-    //add some filters here regarding rating
     const bookmarkString = generateBookmarkList(items);
-    console.log(bookmarkString);
     $('ul').html(bookmarkString);
+    //add some filters here regarding rating
   };
   // const handleDeleteBookmark = function(){
   //   console.log('handleDeleteBookmark needs to listen for a click on the delete button and run the function that will remove the item from the store');

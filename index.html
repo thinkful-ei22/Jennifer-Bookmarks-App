@@ -9,26 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <main role="main">
         <!-- <title (header) - should stay fixed to the top (make bigger and centered)-->
         <header role="banner">
             <h1>My Bookmarks</h1>
+                <!-- add button - align left, make larger -->
+                <button type="submit" name="add-bookmark" id="add-bookmark">Add Bookmark</button>
+                    <!-- filter dropdown - align right (inline with add button) maybe add label-->
+                <select name="rating-filter" id="rating-filter" aria-label="rating-select">
+                        <!-- options: 1 star, 2 stars... add ids, values, etc.  should value be a number?-->
+                        <option value="none" selected>Minimum Rating</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>   
+                </select>
         </header>
+    <main>
         <!-- div for top - should stay fixed at top -->
-        <div id="button-container">
-            <!-- add button - align left, make larger -->
-            <button type="submit" name="add-bookmark" id="add-bookmark">Add Bookmark</button>
-            <!-- filter dropdown - align right (inline with add button) maybe add label-->
-            <select name="rating-filter" id="rating-filter" aria-label="rating-select">
-                <!-- options: 1 star, 2 stars... add ids, values, etc.  should value be a number?-->
-                <option value="none" selected>Minimum Rating</option>
-                <option value="5">5 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="2">2 Stars</option>
-                <option value="1">1 Star</option>   
-            </select>
-        </div>
+        
         <!-- form for create container -->
         <form name="create-bookmark" id="create-form" class="hidden">
             <h3>Create Bookmark</h3>
@@ -50,16 +49,18 @@
             </fieldset>
             <button type="submit" name="submit-new" id="submit-new" >Submit</button>
         </form>
-        <!-- div to hold list-->
-        <div>
             <!-- ul to hold entries -->
             <ul>
                 <!-- li in default mode  -->
                 <li class="list-item">
+                    <div class="title">
                     <!-- heading to display title - top left text, clickable -->
                     <h3>Example Title</h3>
+                    <!-- button to delete - top right -->
+                    <button type="submit" name="delete-bookmark" id="delete"><span class="fa fa-trash-o"></span></button>
                     <!-- div to display rating - bottom left -->
-                    <div>
+                    </div>
+                    <div class="ratings">
                         <!-- the class checked will need to change depending on rating, also need to pick color -->
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -67,39 +68,41 @@
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <!-- button to delete - top right -->
-                    <button type="submit" name="delete-bookmark" id="">Delete</button>
                 </li>
                 <li class="list-item expanded">
-                    <!-- heading to display title - top left text, clickable -->
-                    <h3>Example Title Expanded</h3>
-                    <!-- div to display rating - bottom left -->
-                    <div>
-                        <!-- stay under title the class checked will need to change depending on rating, also need to pick color -->
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
+                        <div class="title">
+                            <!-- heading to display title - top left text, clickable -->
+                            <h3>Example Title</h3>
+                            <!-- button to delete - top right -->
+                            <button type="submit" name="delete-bookmark" id="delete"><span class="fa fa-trash-o"></span></button>
+                            <!-- div to display rating - bottom left -->
+                            </div>
+                            <div class="ratings">
+                                <!-- the class checked will need to change depending on rating, also need to pick color -->
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
                     <!-- div to display description -->
                     <div>
-                        <p>Sample description...</p>
+                        <p>This is where someone would describe their article. It should have enough room for 3-5 sentences.  Like these.
+                        </p>
                     </div>
+                    <div class="item-button-container">
                     <!-- button to visit site - bottom left -->
-                    <button type="submit" name="visit-site" id="">Visit Site</button>
+                    <button type="submit" name="visit-site" id="visit-site">Visit Site</button>
                     <!-- button to edit - bottom right -->
-                    <button type="submit" name="edit-bookmark" id="">Edit</button>
-                    <!-- button to delete - top right -->
-                    <button type="submit" name="delete-expanded-bookmark" id="">Delete</button>
+                    <button type="submit" name="edit-bookmark" id="edit-bookmark"><span class="fa fa-pencil"></span><span> Edit</span></button>
+                    </div>
                 </li>
             </ul>
-        </div>
-        <div class="error-message">
+        <!-- <div class="error-message">
             <h3>Oops!</h3>
             <p>Error text...</p>
             <span>&times;</span>
-        </div>
+        </div> -->
         <!-- error message pop-up 
             title "oops!"
             error text -->

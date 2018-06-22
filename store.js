@@ -29,14 +29,13 @@ const store = (function(){
   };
 
   return {
-    items: [],
+    items:[],
     findById,
     addBookmark,
     toggleExpanded,
     findAndUpdate,
-    findAndDelete
+    findAndDelete,
   };
-
 }());
 
 //toggle hidden class

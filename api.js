@@ -42,9 +42,10 @@ const api = (function(){
     
   const getBookmarks = function(callback){
     const data= $.getJSON(`${BASE_URL}/bookmarks`, callback);
-    console.log(Object.keys(data));
-    store.items.push(data);
-    console.log(store.items);
+    data.done(function (data) {
+      store.items=data;
+    });   
+    return store.items;
   };
 
   return {
