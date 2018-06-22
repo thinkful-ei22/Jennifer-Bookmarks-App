@@ -1,4 +1,11 @@
 'use strict';
 /*global $ api store listeners*/
-listeners.bindEventListeners();
-listeners.render();
+$(function(){
+  listeners.bindEventListeners();
+  api.getBookmarks(function(bookmarks){
+    bookmarks.forEach(function(bookmark){
+      store.addBookmark(bookmark);
+    });
+    listeners.render();
+  });
+});

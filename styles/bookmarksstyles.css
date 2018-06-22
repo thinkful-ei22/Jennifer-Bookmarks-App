@@ -16,7 +16,7 @@
     max-width: 500px;
 }
 
-#delete {
+.delete {
     margin: 5px;
     float: right;
     width: 20px;
@@ -42,9 +42,27 @@ h3 {
     display: inline-block;
 }
 
+.item-heading {
+    display:inline-block;
+    font-size: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
 .title {
     width: 100%;
     background-color: lightgray;
+    display: inline-block;
+    font-size: 16px;
+    height:100%;
+    box-sizing: border-box;
+}
+
+.trash {
+    width: 30px;
+    background-color: lightgray;
+    display:inline-block;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 span{

@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Bookmarks App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" rel="stylesheet" href="styles.css">
-    <link type="text/css" rel="stylesheet" href="formstyles.css">
-    <link type="text/css" rel="stylesheet" href="bookmarksstyles.css">
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    <link type="text/css" rel="stylesheet" href="styles/formstyles.css">
+    <link type="text/css" rel="stylesheet" href="styles/bookmarksstyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
                     <!-- filter dropdown - align right (inline with add button) maybe add label-->
                 <select name="rating-filter" id="rating-filter" aria-label="rating-select">
                         <!-- options: 1 star, 2 stars... add ids, values, etc.  should value be a number?-->
-                        <option value="none" selected>Minimum Rating</option>
+                        <option value="0" selected>Minimum Rating</option>
                         <option value="5">5 Stars</option>
                         <option value="4">4 Stars</option>
                         <option value="3">3 Stars</option>
@@ -57,54 +57,7 @@
                 <button type="submit" name="submit-new" id="submit-new" >Submit</button>
             </div>
         </form>
-            <!-- ul to hold entries -->
-            <ul>
-                <!-- li in default mode  -->
-                <li class="list-item">
-                    <div class="title">
-                    <!-- heading to display title - top left text, clickable -->
-                    <h3>Example Title</h3>
-                    <!-- button to delete - top right -->
-                    <button type="submit" name="delete-bookmark" id="delete"><span class="fa fa-trash-o"></span></button>
-                    <!-- div to display rating - bottom left -->
-                    </div>
-                    <div class="ratings">
-                        <!-- the class checked will need to change depending on rating, also need to pick color -->
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                </li>
-                <li class="list-item expanded">
-                        <div class="title">
-                            <!-- heading to display title - top left text, clickable -->
-                            <h3>Example Title</h3>
-                            <!-- button to delete - top right -->
-                            <button type="submit" name="delete-bookmark" id="delete"><span class="fa fa-trash-o"></span></button>
-                            <!-- div to display rating - bottom left -->
-                            </div>
-                            <div class="ratings">
-                                <!-- the class checked will need to change depending on rating, also need to pick color -->
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                    <!-- div to display description -->
-                    <div>
-                        <p>This is where someone would describe their article. It should have enough room for 3-5 sentences.  Like these.
-                        </p>
-                    </div>
-                    <div class="item-button-container">
-                    <!-- button to visit site - bottom left -->
-                    <button type="submit" name="visit-site" id="visit-site">Visit Site</button>
-                    <!-- button to edit - bottom right -->
-                    <button type="submit" name="edit-bookmark" id="edit-bookmark"><span class="fa fa-pencil"></span><span> Edit</span></button>
-                    </div>
-                </li>
+            <ul class="bookmark-results">
             </ul>
         <!-- <div class="error-message">
             <h3>Oops!</h3>
@@ -125,9 +78,9 @@
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="store.js"></script>  
-    <script type="text/javascript" src="api.js"></script>
-    <script type="text/javascript" src="listeners.js"></script>  
-    <script type="text/javascript" src="index.js"></script>  
+    <script type="text/javascript" src="scripts/store.js"></script>  
+    <script type="text/javascript" src="scripts/api.js"></script>
+    <script type="text/javascript" src="scripts/listeners.js"></script>  
+    <script type="text/javascript" src="scripts/index.js"></script>  
 </body>
 </html>

@@ -6,10 +6,6 @@ const store = (function(){
     return this.items.find(bookmark => bookmark.id === id);
   };
   const addBookmark = function(bookmark){
-    let rating = $('input[type="radio"]:checked').val();
-    let description = $('#description').val();
-    bookmark.rating=rating;
-    bookmark.desc=description;
     bookmark.expanded=false;
     this.items.push(bookmark);
   }; 
@@ -28,13 +24,18 @@ const store = (function(){
     this.items = this.items.filter(bookmark =>bookmark.id !== id);
   };
 
+  const toggleRatingFilter = function() {
+    this.filterByRating= !this.filterByRating;
+  };
   return {
     items:[],
+    filterByRating: false,
     findById,
     addBookmark,
     toggleExpanded,
     findAndUpdate,
     findAndDelete,
+    toggleRatingFilter,
   };
 }());
 

@@ -17,7 +17,9 @@ const listeners= (function(){
       event.preventDefault();
       const title = $('#title').val();
       const URL = $('#url').val();
-      api.createBookmark(title, URL, (newBookmark)=>{
+      let rating = $('input[type="radio"]:checked').val();
+      let desc = $('#description').val();
+      api.createBookmark(title, URL, rating, desc, (newBookmark)=>{
         store.addBookmark(newBookmark);
         render();
         let form = $('#create-form');
@@ -26,113 +28,149 @@ const listeners= (function(){
     });
   };
 
-  const generateRatingHtml = function(item){
-    if(item.rating===5){
-      return `
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-        `;
-    } 
-    else if(item.rating===4){
-      return `  
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star"></span>
-           `;
-    } 
-    else if(item.rating===3){
-      return `  
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star"></span>
-               <span class="fa fa-star"></span>
-           `;
+  const generateRatingHtml = function(rating){
+    let output;
+    switch(rating){
+    case 5:
+      output=
+        ` 
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          `;
+      break;
+    case 4:
+      output=
+        ` 
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          `;
+      break;
+    case 3:
+      output=
+        ` 
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          `;
+      break;
+    case 2:
+      output=
+        ` 
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          `;
+      break;
+    case 1:
+      output=
+        ` 
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          `;
+      break;
     }
-    else if(item.rating===2){
-      return `  
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-               `;
-    }
-    else if(item.rating===1){
-      return ` 
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>
-                   <span class="fa fa-star"></span>`;
-    }
+    return output;
   };
 
   const generateBookmarkHtml= function(item){
-    console.log('generateBookmarkHtml ran');
     let title = item.title;
-    let rating = generateRatingHtml(item);
-    console.log(rating);
+    let id=item.id;
+    let description = item.desc;
     if(item.expanded === true){
       return `  
-        <li class="list-item expanded" id="${item.id}>
-           <h3>${title}</h3>
-           <div>
-               ${rating}
-           </div>
-           <div>
-               <p>${item.desc}</p>
-           </div>
-           <button type="submit" name="visit-site" id="">Visit Site</button>
-           <button type="submit" name="edit-bookmark" id="">Edit</button>
-           <button type="submit" name="delete-expanded-bookmark" id="">Delete</button>
-       </li>`;
+      <li class="list-item expanded" id=${id}>
+        <div class="title">
+          <h3>${title}</h3>
+        </div>
+        <div class="trash">
+          <button type="submit" name="delete-bookmark" class="delete"><span class="fa fa-trash-o"></span></button>
+        </div>
+        <div class="ratings">
+            ${generateRatingHtml(item.rating)}
+        </div>
+        <div>
+          <p>${description}</p>
+        </div>
+        <div class="item-button-container">
+          <button type="submit" name="visit-site" id="visit-site">Visit Site</button>
+          <button type="submit" name="edit-bookmark" id="edit-bookmark"><span class="fa fa-pencil"></span><span> Edit</span></button>
+        </div>
+      </li>`;
     } 
     return `
-    <li class="list-item" id="${item.id}">
-        <h3>${title}</h3>
-        <div>
-            ${rating}
+    <li class="list-item" id=${id}>
+        <div class="title">
+            <h3>${title}</h3>
         </div>
-        <button type="submit" name="delete-bookmark" id="">Delete</button>
+        <div class="trash">
+            <button type="submit" name="delete-bookmark" class="delete"><span class="fa fa-trash-o"></span></button>
+        </div>
+        <div class="ratings">
+            ${generateRatingHtml(item.rating)}
+        </div>
     </li>`;
   };
 
-  const generateBookmarkList = function(){
-    const items = store.items;
-    // const html = items.map((item) => item.map((bookmark)=>generateBookmarkHtml(bookmark)));
+  const generateBookmarkList = function(items){
+    items = store.items;
     const html = items.map((item)=>generateBookmarkHtml(item));
     return html.join('');
   };
 
   const render = function(){
     let items = store.items;
-    const bookmarkString = generateBookmarkList(items);
-    $('ul').html(bookmarkString);
-    //add some filters here regarding rating
-  };
-  // const handleDeleteBookmark = function(){
-  //   console.log('handleDeleteBookmark needs to listen for a click on the delete button and run the function that will remove the item from the store');
-  // };
-  
-  // const handleUpdateBookmark = function(){
-  //   console.log('handleUpdateBookmark needs to listen for a click on the edit button, run a function that allows for editing and one that will update the store');
-  // };
-  //   const getItemIdFromElement = function (item) {
-  //     return $(item).data('id');
-  //   };
+    let rating = parseInt($('select option:checked').val());
+    if (store.filterByRating){
+      items=store.items.filter(item => item.rating >= rating);
+      const bookmarkString = generateBookmarkList(items);
+      $('ul.bookmark-results').html(bookmarkString); 
+    }
+    else {
+      const bookmarkString = generateBookmarkList(items);
+      $('ul.bookmark-results').html(bookmarkString);
+    }};
 
+  const handleDeleteBookmark = function(){
+    $('ul').on('click', '.delete', event => {
+      const id = $(event.currentTarget).parent().parent().attr('id');
+      console.log(id);
+      // store.findAndDelete(id);
+      api.deleteBookmark(id, ()=>{
+        store.findAndDelete(id);
+        render();
+      });
+    });
+  };
+  
   const handleExpand = function(){
-    $('ul').on('click', '.list-item', event => {
-      const id = $(event.currentTarget).attr('id');
+    $('ul').on('click', '.title', event => {
+      const id = $(event.currentTarget).parent().attr('id');
       const item = store.findById(id);
-      console.log(item);
       store.findAndUpdate(id, {expanded: !item.expanded});
+      render();
+    });
+  };
+
+  const handleRatingFilter = function(){
+    $('select').on('change', () =>{
+      let ratingFilter = parseInt($('select option:checked').val());
+      if(ratingFilter!==0){
+        store.filterByRating=true;
+        render();
+      }
       render();
     });
   };
@@ -141,6 +179,8 @@ const listeners= (function(){
     handleCreateClick();
     handleNewBookmark();
     handleExpand();
+    handleDeleteBookmark();
+    handleRatingFilter();
   };
   return {
     render,
